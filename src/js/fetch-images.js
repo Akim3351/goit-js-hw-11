@@ -9,11 +9,12 @@ export default class ImageSearch {
         this.perPage = 40;
     }
     async fetchImages() {
-        const url = `${BASEURL}?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`;    
+        const url = `${BASEURL}/api/?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`;    
         // console.log(this.searchQuery);
         const response = await axios.get(url);
         this.page += 1;
-        return response.data
+        console.log(response.data);
+        return response.data;
     }
     resetPage() {
         this.page = 1
